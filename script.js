@@ -62,19 +62,18 @@ function generatePassword() {
       }
 
       if (useLowerCase) {
-        passArray.splice(0,0..lowerCase);
+        passArray.splice(0,0,...lowerCase);
       }
 
       if (useUpperCase) {
-        passArray.splice(0,0..upperCase);
+        passArray.splice(0,0,...upperCase);
       }
 
       if (special) {
-        passArray.splice(0,0..special);
+        passArray.splice(0,0,...special);
       }
     
       let password = "";
-
       for (i=0; i<=length; i++) {
         let randomNum = Math.floor(Math.random() * passArray.length);
         password += passArray[randomNum];
