@@ -27,8 +27,12 @@ return numberResponse;
 function typePrompt(question) {
   let response = prompt(question).toLowerCase();
   do {
-    if(response === "yes" || "YES") {
+    if(response === "yes") {
       return true;
+    }
+
+    else if(response === "no") {
+      return false;
     }
     else {
       response = prompt("Please enter a valid response." + question).toLowerCase();
@@ -60,21 +64,17 @@ function generatePassword() {
       if (useNumbers) {
         passArray.splice(0,0,...numbers);
       }
-
       if (useLowerCase) {
         passArray.splice(0,0,...lowerCase);
       }
-
       if (useUpperCase) {
         passArray.splice(0,0,...upperCase);
       }
-
-      if (special) {
+      if (useSpecial) {
         passArray.splice(0,0,...special);
       }
-    
       let password = "";
-      for (i=0; i<=length; i++) {
+      for(i = 0; i <= length; i++) {
         let randomNum = Math.floor(Math.random() * passArray.length);
         password += passArray[randomNum];
       }
