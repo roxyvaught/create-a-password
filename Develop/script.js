@@ -1,8 +1,8 @@
 // password variables
+let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-let special = "!@#$%^&*()_+-=?[]<>,.".split("");
+let special = "!@#$%^&*()-_+=?/\[]{}<>".split(""); 
 
 // set password length between 8 and 128 characters
 function lengthPrompt() {
@@ -27,7 +27,7 @@ return numberResponse;
 function typePrompt(question) {
   let response = prompt(question).toLowerCase();
   do {
-    if(response === "yes" || "YES" {
+    if(response === "yes" || "YES") {
       return true;
     }
     else {
@@ -58,25 +58,25 @@ function generatePassword() {
       let passArray = [];
 
       if (useNumbers) {
-        passArray(0,0,...numbers);
+        passArray.splice(0,0,...numbers);
       }
 
       if (useLowerCase) {
-        passArray(0,0...lowerCase);
+        passArray.splice(0,0..lowerCase);
       }
 
       if (useUpperCase) {
-        passArray(0,0...upperCase);
+        passArray.splice(0,0..upperCase);
       }
 
       if (special) {
-        passArray(0,0...special);
+        passArray.splice(0,0..special);
       }
     
       let password = "";
 
       for (i=0; i<=length; i++) {
-        let randomNum = math.floor(math.random() * passArray.length);
+        let randomNum = Math.floor(Math.random() * passArray.length);
         password += passArray[randomNum];
       }
       return password;
@@ -84,11 +84,11 @@ function generatePassword() {
 
 function writePassword() {
     var passwordText = document.querySelector("#password");
-    passwordText.value = "";
+    passwordText.value = " ";
     var password = generatePassword();
     passwordText.value = password;
 }
 
-var generateBtn = document.querySelector("#generate")
+var generateBtn = document.querySelector("#generate");
 
-generateBtn.addEventListener("click, writePassword");
+generateBtn.addEventListener("click", writePassword);
